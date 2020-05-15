@@ -65,4 +65,4 @@ npm run build
 
 ### License
 
-MIT © [Vasyl Babal].
+MIT © [Vasyl Babal](https://github.com/vabileus).
