@@ -1,6 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
 import { IsString, IsInt } from 'class-validator';
-import { UserProjectRole } from '../model/user-project-role.enum';
 
 @Exclude()
 export class UserDto {
@@ -17,5 +16,6 @@ export class UserDto {
     readonly lastName: string;
 
     @Expose()
-    readonly projectUserRole: UserProjectRole;
+    @IsString()
+    readonly projectUserRole: string;
 }
