@@ -1,16 +1,18 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ReportController } from './report/report.controller';
-import { ProjectController } from './project/project.controller';
-import { UserController } from './user/user.controller';
-import { ProjectService } from './project/project.service';
-import { ReportService } from './report/report.service';
-import { UserService } from './user/user.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from 'typeorm';
+import { UsersController } from './users/users.controller';
+import { UsersService } from './users/users.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, ReportController, ProjectController, UserController],
-  providers: [AppService, ProjectService, ReportService, UserService],
+  imports: [TypeOrmModule.forRoot(), AuthModule],
+  controllers: [AppController, UsersController],
+  providers: [AppService, UsersService],
 })
-export class AppModule {}
+
+export class AppModule {
+  constructor(private connection: Connection) {}
+}
