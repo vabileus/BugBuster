@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { UserRole } from './../model/user-role.enum';
 import { Exclude } from 'class-transformer';
+import { Project } from 'src/projects/entity/project.entity';
 
 @Entity()
 export class User {
@@ -25,4 +26,7 @@ export class User {
 
   @Column()
   userProjectRole: string;
+
+  @OneToMany(type => Project, project => project.user)
+  projects: Project[];
 }

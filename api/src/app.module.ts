@@ -5,10 +5,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-import { UsersService } from './users/users.service';
+import { BugsModule } from './bugs/bugs.module';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), AuthModule, UsersModule],
+  imports: [TypeOrmModule.forRoot(), AuthModule, UsersModule, BugsModule, ProjectsModule],
   controllers: [AppController],
   providers: [AppService],
 })

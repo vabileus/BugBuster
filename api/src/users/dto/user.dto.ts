@@ -5,7 +5,7 @@ import { IsString, IsInt } from 'class-validator';
 export class UserDto {
     @Expose()
     @IsInt()
-    readonly id: Int16Array;
+    readonly id: number;
 
     @Expose()
     @IsString()
