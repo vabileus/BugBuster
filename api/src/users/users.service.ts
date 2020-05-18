@@ -14,8 +14,16 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
+  save(user: User): Promise<User> {
+    return this.usersRepository.save(user);
+  }
+
   findOne(id: string): Promise<User> {
     return this.usersRepository.findOne(id);
+  }
+
+  findOneBy(query: Object): Promise<User> {
+    return this.usersRepository.findOne(query);
   }
 
   async remove(id: string): Promise<void> {

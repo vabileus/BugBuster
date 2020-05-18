@@ -24,7 +24,7 @@ export class User {
   @Column({ enum: UserRole, default: UserRole.User })
   userRole?: UserRole;
 
-  @Column()
+  @Column({ default: 'Developer' })
   userProjectRole: string;
 
   @OneToMany(type => Project, project => project.user)
